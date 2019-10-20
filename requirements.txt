@@ -1,0 +1,7 @@
+pandas
+numpy
+opencv-python
+matplotlib
+scipy
+jupyter
+git+git://github.com/mcherep/objdet
