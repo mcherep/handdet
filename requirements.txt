@@ -4,4 +4,5 @@ opencv-python
 matplotlib
 scipy
 jupyter
-git+ssh://git@github.com/mcherep/objdet.git
+tensorflow-gpu==1.15.0
+git+git://github.com/mcherep/objdet
