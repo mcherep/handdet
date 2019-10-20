@@ -4,4 +4,4 @@ opencv-python
 matplotlib
 scipy
 jupyter
-git+git://github.com/mcherep/objdet
+git+ssh://git@github.com/mcherep/objdet.git
