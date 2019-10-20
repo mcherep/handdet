@@ -15,3 +15,7 @@ Download the [Egohands Dataset](http://vision.soic.indiana.edu/egohands_files/eg
 ```bash
 unzip egohands_data.zip -d egohands && rm egohands_data.zip
 ```
+
+## Google Colab
+
+In order to run the notebook in [Google Colab](https://colab.research.google.com/github/)
