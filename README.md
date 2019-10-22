@@ -1,6 +1,6 @@
 # Hand Detection in Tensorflow
 
-A hand object detection using [Object Detection in Tensorflow](https://github.com/mcherep/objdet). The object detector uses SSD300 on top of MobileNetV2 applying transfer learning from a pretrained model on [MS COCO](http://cocodataset.org/#home). The model is trained with the [Egohands Dataset](http://vision.soic.indiana.edu/egohands_files/egohands_data.zip). The main goal is to demonstrate the easy use of `objdet` and to build a fast detector ready for realtime applications.
+A hand object detection using [ObjDet](https://github.com/mcherep/objdet). The object detector in the example uses SSD300 on top of MobileNetV2 applying transfer learning from a pretrained model on [MS COCO](http://cocodataset.org/#home). The model is trained with the [Egohands Dataset](http://vision.soic.indiana.edu/egohands_files/egohands_data.zip). The main goal is to demonstrate the easy use of `objdet` and to build a fast detector ready for realtime applications. A later application for tracking can be found in [ObjTracking](https://github.com/mcherep/objtracking)
 
 ## TODO
 
