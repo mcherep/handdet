@@ -4,10 +4,24 @@ A hand object detection using [Object Detection in Tensorflow](https://github.co
 
 ## TODO
 
-* There is a problem with the export PYTHONPATH that breaks imports
-* The TFRecords maybe are not correct
+### Objdet
+
+* The export doesn't work properly and breaks the imports
+* Install, download, transfer_learning, save_model, load_model seem to work
+* Train works with legacy but doesn't output results
+* Tfrecords creation doesn't break but the records size seem suspiciously small.
+The funtion that everyone uses tf.gfile doesn't work in 1.15 so use cv2 or others instead.
+* Tfpredict doesn't work because the result of the prediction are now tensors. I wonder why
+it worked at some point? Maybe I was using Tensorflow 2.0?
+
+### Handdet
+
+* Create a notebook that works out of the box with GPU
+* Check transfer_learning_mobilenet in omo because it worked
+loading the model and running predictions with tensorflow 1.14
 * Make tensorboard work
 * Output while training
+* If legacy train works, I can remove the fork and go back to original
 
 ## Installation
 
