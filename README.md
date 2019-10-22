@@ -6,8 +6,9 @@ A hand object detection using [ObjDet](https://github.com/mcherep/objdet). The o
 
 ### Objdet
 
+* Save checkpoints in drive instead of locally to colab
 * The export doesn't work properly and breaks the imports
-* Install, download, transfer_learning, save_model, load_model seem to work
+* ~~Install, download, transfer_learning, save_model, load_model seem to work~~
 * Train works with legacy but doesn't output results
 * Tfrecords creation doesn't break but the records size seem suspiciously small.
 The funtion that everyone uses tf.gfile doesn't work in 1.15 so use cv2 or others instead.
@@ -20,7 +21,6 @@ it worked at some point? Maybe I was using Tensorflow 2.0?
 * Check transfer_learning_mobilenet in omo because it worked
 loading the model and running predictions with tensorflow 1.14
 * Make tensorboard work
-* Output while training
 * If legacy train works, I can remove the fork and go back to original
 
 ## Installation
