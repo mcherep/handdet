@@ -18,6 +18,12 @@ Download the [Egohands Dataset](http://vision.soic.indiana.edu/egohands_files/eg
 unzip egohands_data.zip -d egohands && rm egohands_data.zip
 ```
 
+Download the [CMU Hand DB](http://domedb.perception.cs.cmu.edu/panopticDB/hands/hand_labels.zip) in the `data` folder and execute the following:
+
+```bash
+unzip hand_labels.zip && mv hand_labels handdb && rm hand_labels.zip
+```
+
 ## Google Colab
 
 In order to run the notebook in [Google Colab](https://colab.research.google.com/github/)
