@@ -1,6 +1,7 @@
 pandas
 numpy
 opencv-python
+imutils
 matplotlib
 scipy
 jupyter
