@@ -20,7 +20,7 @@ def main():
     print("Tracking...")
     recording = False
     tracking = True
-    frame_id = 1000000
+    frame_id = 0
     while(tracking):
         # Capture frame
         frame = stream.read()
