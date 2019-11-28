@@ -27,14 +27,14 @@ def main():
         frame = cv2.flip(frame, 1)
 
         if recording:
-            if frame_id % 10 == 0:
+            if frame_id % 30 == 0:
                 # Save image
                 filename = os.path.join(DATA_DIR, str(frame_id) + '.jpg')
                 cv2.imwrite(filename, frame)
 
             frame_id += 1
             if frame_id % 1000 == 0:
-                print("Numer of images {}".format(frame_id / 10))
+                print("Numer of images {}".format(frame_id / 30))
 
         cv2.imshow('frame', frame)
 
