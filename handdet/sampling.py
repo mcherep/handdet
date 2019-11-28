@@ -20,7 +20,7 @@ def main():
     print("Tracking...")
     recording = False
     tracking = True
-    frame_id = 0
+    frame_id = 1000000
     while(tracking):
         # Capture frame
         frame = stream.read()
@@ -34,7 +34,6 @@ def main():
 
             frame_id += 1
             if frame_id % 1000 == 0:
-                print("Numer of images {}".format(frame_id / 30))
 
         cv2.imshow('frame', frame)
 
