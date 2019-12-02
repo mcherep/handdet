@@ -33,7 +33,6 @@ def main():
                 cv2.imwrite(filename, frame)
 
             frame_id += 1
-            if frame_id % 1000 == 0:
 
         cv2.imshow('frame', frame)
 
