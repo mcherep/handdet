@@ -14,6 +14,7 @@ import pandas as pd
 import shutil
 import random
 import xml.etree.ElementTree as ET
+from PIL import Image, ImageEnhance
 
 DATA_PATH = '../data/omohands'  # Path for the final dataset
 CLASS = 1  # There's only one class (i.e. hand)
@@ -26,6 +27,7 @@ def main():
     create_labels()
     clean()
     split_train_test()
+    data_augmentation()
 
 
 def create_labels():
@@ -116,6 +118,51 @@ def split_train_test():
             elif f in test_imgs:
                 os.rename(os.path.join(DATA_PATH, f),
                           os.path.join(DATA_PATH, 'test', f))
+
+
+def data_augmentation():
+    # Directories for the data
+    dirs = [os.path.join(DATA_PATH, 'train'),
+            os.path.join(DATA_PATH, 'validation'),
+            os.path.join(DATA_PATH, 'test')]
+
+    for d in dirs:
+        # Read .csv with labels
+        labels_df = pd.read_csv(os.path.join(d, 'labels.csv'))
+        # Read images
+        images = [f for f in os.listdir(d) if '.jpg' in f]
+        # Sample 40% of all images randomly
+        sample_images = np.random.choice(
+            images, int(len(images)*0.4), replace=False)
+        labels_aug = []
+        for f in sample_images:
+            # Read the image
+            im = Image.open(os.path.join(d, f))
+            # Apply augmentation
+            enhancer = ImageEnhance.Brightness(im)
+            brightness_factor = np.random.uniform(0.5, 0.8)
+            im_aug = enhancer.enhance(brightness_factor)
+
+            # Save augmented image
+            filename = f[:-4] + '_aug.jpg'
+            im_aug.save(os.path.join(d, filename))
+
+            # Get info from labels_df and duplicate for augmented image
+            boxes_df = labels_df[labels_df.frame == f]
+            for _, row in boxes_df.iterrows():
+                # Save as bounding box
+                labels_aug.append({"frame": filename,
+                                   "xmin": row.xmin,
+                                   "xmax": row.xmax,
+                                   "ymin": row.ymin,
+                                   "ymax": row.ymax,
+                                   "class_id": CLASS})
+
+        # Pandas dataframe to save in .csv
+        labels_aug_df = pd.DataFrame(labels_aug)
+        # Concatenate labels and labels_aug
+        labels_df = pd.concat([labels_df, labels_aug_df])
+        labels_df.to_csv(os.path.join(d, 'labels.csv'), index=False)
 
 
 def plot_bbox(img_filename):
