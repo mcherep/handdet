@@ -5,5 +5,5 @@ imutils
 matplotlib
 scipy
 jupyter
-tensorflow-gpu==1.15.0
+tensorflow-gpu==1.15.4
 git+git://github.com/mcherep/objdet
